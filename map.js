@@ -74,6 +74,7 @@ $(document).ready(function(){
 			map.setCenter(btnValue);
 			smoothZoom(map, 16, map.getZoom());
 		} else {
+			map.setCenter(btnValue);
 			smoothZoomOut(map, 12, map.getZoom());
 		}
 	});
