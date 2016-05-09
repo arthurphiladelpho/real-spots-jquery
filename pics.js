@@ -11,12 +11,13 @@ $(document).ready(function(){
 
 		function displayPics(data){
 			// var resultsHTML = '<div id="picsDiv">';
-			var resultsHTML = "<ul>";
+			var resultsHTML = '<h3>' + 'Recent Pictures of ' + beach + '</h3>'
+			resultsHTML += "<ul>";
 			$.each(data.items, function(i, pic) {
-				resultsHTML += '<li>';
+				resultsHTML += '<li class="images">';
 				resultsHTML += '<a href="' + pic.link + ' " class="image">';
 				resultsHTML += '<img src="' + pic.media.m + ' "></a>';
-				resultsHTML += "</li>";
+				resultsHTML += "</td></li>";
 			});
 			resultsHTML += "</ul>";
 			// resultsHTML += "</div>";

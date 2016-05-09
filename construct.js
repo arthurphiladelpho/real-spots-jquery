@@ -34,7 +34,7 @@ logoDiv.id = "logoDiv";
 container.appendChild(logoDiv);
 var logoImg = document.createElement('img');
 logoImg.id = "logoImg";
-logoImg.src = "logo-small.png";
+logoImg.src = "images/logo-small.png";
 logoDiv.appendChild(logoImg);
 // A topbar div -> holds our buttons, search bar and logo.
 var topbar = document.createElement('div');
@@ -68,6 +68,14 @@ container.appendChild(pictures);
 var footerDiv = document.createElement('div');
 footerDiv.id = "footerDiv";
 container.appendChild(footerDiv);	  
+footerTitle = document.createElement('h4');
+footerTitle.innerHTML = "Powered by";
+footerTitle.id = "footerTitle";
+footerDiv.appendChild(footerTitle);
+var footerImages = document.createElement('table');
+footerImages.id = "footerImages";
+footerDiv.appendChild(footerImages);
+footerImages.innerHTML = '<tr><td><img class="footerImages" src="images/flickr.png"></td><td><img class="footerImages" src="images/forecast.png"></td><td><img class="footerImages" src="images/maps.png"></td>';
 // Create an array to hold all of our Google Maps Markers.
 var markers = [];
 // Create the Places array -> where we will store all of our places' objects.
@@ -88,6 +96,7 @@ var guaratiba = new Places('Guaratiba', -23.067656, -43.567932, places);
 // Wiring Things Together
 // A jQuery function -> when document has loaded this function runs.
 $(document).ready(function(){
+
 	// Here we call the Make Buttons function giving it our Places array. 
 	makeButtons(places);
 	$("body").on('click', 'button', function (){
