@@ -43,14 +43,14 @@ function smoothZoomOut (map, zoom, count) {
 		setTimeout(function(){map.setZoom(count)}, 100);
 	}	
 	else {
-	return
-}		  
+		return
+	}		  
 }
 
 function smoothZoom (map, zoom, count) {
-if (count >= zoom) {
+	if (count >= zoom) {
 		return	
-}
+	}
 	else {
 		var z = google.maps.event.addListener(map, 'zoom_changed', function(event){
 			 google.maps.event.removeListener(z);
@@ -59,7 +59,7 @@ if (count >= zoom) {
 	setTimeout(function(){map.setZoom(count)}, 100);
 
 	}
-}		  
+}
 
 // Button Click	Zoom Functionality Link
 $(document).ready(function(){
@@ -76,6 +76,6 @@ $(document).ready(function(){
 		} else {
 			map.setCenter(btnValue);
 			smoothZoomOut(map, 12, map.getZoom());
-		}
+		}	
 	});
 });
