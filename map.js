@@ -62,20 +62,22 @@ function smoothZoom (map, zoom, count) {
 }
 
 // Button Click	Zoom Functionality Link
-$(document).ready(function(){
-	$("body").on('click', 'button', function(){
-		var btnValue = $(this).text();
-		for(var i = 0; i < places.length; i++){
-			if(btnValue === places[i]['name']){
-				btnValue = places[i]['spot'];
-			}
+function addZoom(){
+	var btnValue = this.value;
+	for(var i = 0; i < places.length; i++){
+		if(btnValue === places[i]['name']){
+			btnValue = places[i]['spot'];
 		}
-		if(map.zoom <= 12){
-			map.setCenter(btnValue);
-			smoothZoom(map, 16, map.getZoom());
-		} else {
-			map.setCenter(btnValue);
-			smoothZoomOut(map, 12, map.getZoom());
-		}	
-	});
-});
+	}
+	if(map.zoom <= 12){
+		map.setCenter(btnValue);
+		smoothZoom(map, 16, map.getZoom());
+	} else {
+		map.setCenter(btnValue);
+		smoothZoomOut(map, 12, map.getZoom());
+	}	
+}
+
+for(var i = 0; i < buttons.length; i++){
+	document.getElementById(buttons[i].id).addEventListener("click", addZoom);  		
+}

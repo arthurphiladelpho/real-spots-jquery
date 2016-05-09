@@ -15,8 +15,10 @@ function buttonMaker(place){
 	button.id = place.name;
 	button.value = place.name;
 	var buttonText = document.createTextNode(place.name);
+	button.onclick = function (){title.innerHTML = this.value;}
 	button.appendChild(buttonText);
 	buttonContainer.appendChild(button);
+	buttons.push(button);
 }
 // Make Buttons function -> calls Button Maker function in every element in a give array (we use the array where we stored our places objects).
 function makeButtons(array){
@@ -78,6 +80,7 @@ footerDiv.appendChild(footerImages);
 footerImages.innerHTML = '<tr><td><img class="footerImages" src="images/flickr.png"></td><td><img class="footerImages" src="images/forecast.png"></td><td><img class="footerImages" src="images/maps.png"></td>';
 // Create an array to hold all of our Google Maps Markers.
 var markers = [];
+var buttons =[];
 // Create the Places array -> where we will store all of our places' objects.
 var places = [];
 var urca = new Places('Urca', -22.955430, -43.164800, places);
@@ -94,13 +97,6 @@ var prainha = new Places('Prainha', -23.040962, -43.505379, places);
 var grumari = new Places('Grumari', -23.048466, -43.524417, places);
 var guaratiba = new Places('Guaratiba', -23.067656, -43.567932, places);
 // Wiring Things Together
-// A jQuery function -> when document has loaded this function runs.
-$(document).ready(function(){
-
-	// Here we call the Make Buttons function giving it our Places array. 
-	makeButtons(places);
-	$("body").on('click', 'button', function (){
-		title.innerHTML = this.value;
-	});
-	document.body.appendChild(container);
-});
+// Here we call the Make Buttons function giving it our Places array. 
+makeButtons(places);
+document.body.appendChild(container);	
